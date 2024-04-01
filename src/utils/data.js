@@ -198,28 +198,28 @@ const featurePromo = [
 const contactData = [
   {
     id: 1,
-    title: 'Email Us',
-    info: 'Interactively grow empowered for process-centric total linkage.',
+    title: 'Escribenos',
+    info: 'Respondemos normalmente en 2 a 3 dias laborale.',
     icon: FiMail,
-    contact: 'kachabazar@gmail.com',
+    contact: 'dollarsvoficial@gmail.com',
     className: 'bg-emerald-100',
   },
   {
     id: 2,
-    title: 'Call Us',
-    info: 'Distinctively disseminate focused solutions clicks-and-mortar ministate.',
+    title: 'WhatsApp',
+    info: 'Respondemos normalmente en 2 a 3 dias laborales.',
     icon: FiPhoneCall,
-    contact: '029-00124667',
+    contact: '+503 ####-####',
     className: 'bg-yellow-100',
   },
-  {
+/*   {
     id: 3,
     title: 'Location',
     info: 'Cecilia Chapman, 561-4535 Nulla LA, United States 96522',
     icon: FiMapPin,
     contact: '',
     className: 'bg-indigo-100',
-  },
+  }, */
 ];
 
 export {

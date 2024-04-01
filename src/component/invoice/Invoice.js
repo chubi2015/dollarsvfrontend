@@ -27,7 +27,7 @@ const Invoice = ({ data, printRef }) => {
               </Link>
             </h2>
             <p className="text-sm text-gray-500">
-              CULINARIA food company S.A. de C.V., <br /> El Salvador {' '}
+              DOLLARSV S.A. de C.V., <br /> El Salvador {' '}
             </p>
           </div>
         </div>

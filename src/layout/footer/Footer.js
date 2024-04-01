@@ -150,13 +150,13 @@ const Footer = () => {
             </Link>
             <p className="leading-7 font-sans text-sm text-gray-600 mt-3">
               <span>
-                Culinaria Food Company S.A. de C.V. 
+                DOLLARSV S.A. de C.V. 
               <br />
               </span>
               <br />
-              <span>Tell: ####-####</span>
+              <span>Tell: +503 ####-####</span>
               <br />
-              <span>Email: test@test.com</span>
+              <span>Email: dollarsvoficial@gmail.com</span>
             </p>
           </div>
         </div>

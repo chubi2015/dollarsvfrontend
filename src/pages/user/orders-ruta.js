@@ -99,7 +99,7 @@ const OrdersRuta = () => {
           email: Orden.email, 
           numOrden: id, 
           estado: newStatus, 
-          subject: "Culinaria - Orden "+id.substring(20, 24)+" Actualizada",
+          subject: "DOLLARSV - Orden "+id.substring(20, 24)+" Actualizada",
           }).then((res) => {
         }).catch((err) => {
           notifyError(err.message);

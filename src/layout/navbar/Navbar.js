@@ -64,7 +64,8 @@ const Navbar = () => {
                   alt="logo"
                 /> */}
                 <img 
-                  width={"225"}
+                  width={"100"}
+                  height={"200"}
                   src="/logo/culinariaIcon.svg"
                   alt="logo"
                 />

@@ -182,7 +182,7 @@ const useCheckoutSubmit = () => {
           sessionStorage.removeItem('products');
           emptyCart();
           setIsCheckoutSubmit(false);
-          OrderServices.sendEmailOrder({name:res.name, email: res.email, numOrden:res._id, estado: "Procesando", subject: "Culinaria - Orden Creada"}).then((res) => {
+          OrderServices.sendEmailOrder({name:res.name, email: res.email, numOrden:res._id, estado: "Procesando", subject: "DOLLARSV - Orden Creada"}).then((res) => {
             console.log(res.message);
           }).catch((err) => {
             notifyError(err.message);

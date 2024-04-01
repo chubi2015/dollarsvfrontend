@@ -117,7 +117,7 @@ const Items = () => {
             email: Orden.email,
             numOrden: id,
             estado: newStatus,
-            subject: "Culinaria - Orden " + id.substring(20, 24) + " Actualizada",
+            subject: "DOLLARSV - Orden " + id.substring(20, 24) + " Actualizada",
             fecha: dayjs(EntregaProgramada).format('MMMM D, YYYY')
           }).then((res) => {
           }).catch((err) => {
