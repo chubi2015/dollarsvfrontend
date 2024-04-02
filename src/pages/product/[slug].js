@@ -14,7 +14,7 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from 'react-share';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 //internal import
 import Layout from '@layout/Layout';
@@ -28,14 +28,35 @@ import ProductServices from '@services/ProductServices';
 import ProductCard from '@component/product/ProductCard';
 import { SidebarContext } from '@context/SidebarContext';
 import Loading from '@component/preloader/Loading';
+import ReactImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const ProductScreen = ({ product, relatedProduct }) => {
   const router = useRouter();
   const { isLoading, setIsLoading } = useContext(SidebarContext);
   const { handleAddItem, setItem, item } = useAddToCart();
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     setIsLoading(false);
+    setItems([
+      {
+        original: product.image,
+        thumbnail: product.image,
+      },
+      {
+        original: product.image2,
+        thumbnail: product.image2,
+      },
+      {
+        original: product.image3,
+        thumbnail: product.image3,
+      },
+      {
+        original: product.image4,
+        thumbnail: product.image4,
+      }
+    ]);
   }, [product]);
 
   //comment this when using getServerSideProps
@@ -86,14 +107,18 @@ const ProductScreen = ({ product, relatedProduct }) => {
                 <div className="flex flex-col xl:flex-row">
                   <div className="flex-shrink-0 xl:pr-10 lg:block w-full mx-auto md:w-6/12 lg:w-5/12 xl:w-4/12">
                     <Discount product={product} slug={true} />
-                    <Image
+                    {/*  <Image
                       src={product.image}
                       alt={product.title}
                       layout="responsive"
                       width={650}
                       height={650}
                       priority
-                    ></Image>
+                    ></Image> */}
+                    <ReactImageGallery
+                      items={items}
+                      autoPlay={false}
+                    />
                   </div>
                   <div className="w-full">
                     <div className="flex flex-col md:flex-row lg:flex-row xl:flex-row">
@@ -167,7 +192,7 @@ const ProductScreen = ({ product, relatedProduct }) => {
 
                           <div className="flex flex-col mt-4">
                             <span className="font-serif font-semibold py-1 text-sm d-block">
-                              <span className="text-gray-700">Categoria:</span>{' '}
+                              <span className="text-grProductos Ray-700">Categoria:</span>{' '}
                               <span className="text-gray-500">
                                 {product.children}
                               </span>

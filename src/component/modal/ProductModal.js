@@ -10,6 +10,8 @@ import Price from '@component/common/Price';
 import useAddToCart from '@hooks/useAddToCart';
 import MainModal from '@component/modal/MainModal';
 import { SidebarContext } from '@context/SidebarContext';
+import ReactImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const ProductModal = ({ modalOpen, setModalOpen, product, admin, handleClickUpdate }) => {
   const router = useRouter();
@@ -24,9 +26,28 @@ const ProductModal = ({ modalOpen, setModalOpen, product, admin, handleClickUpda
   };
 
   const [cantidad, setCantidad] = useState(0);
+  const [items, setItems] = useState([]);
 
   useEffect(()=>{
     setCantidad(product.quantity);
+    setItems([
+      {
+        original: product.image,
+        thumbnail: product.image,
+      },
+      {
+        original: product.image2,
+        thumbnail: product.image2,
+      },
+      {
+        original: product.image3,
+        thumbnail: product.image3,
+      },
+      {
+        original: product.image4,
+        thumbnail: product.image4,
+      }
+    ]);
   },[product]);
 
   const handlerestarQuantity = () =>{
@@ -52,14 +73,18 @@ const ProductModal = ({ modalOpen, setModalOpen, product, admin, handleClickUpda
       <div className="inline-block overflow-y-auto h-full align-middle transition-all transform bg-white shadow-xl rounded-2xl">
         <div className="flex flex-col lg:flex-row md:flex-row w-full max-w-4xl overflow-hidden">
           <div
-            onClick={() => handleMoreInfo(product.slug)}
+            //onClick={() => handleMoreInfo(product.slug)}
             className="flex-shrink-0 flex items-center justify-center h-auto cursor-pointer"
           >
-            <Image
+            {/* <Image
               src={product.image}
               width={420}
               height={420}
               alt={product.title}
+            /> */}
+            <ReactImageGallery
+              items={items}
+              autoPlay={false}
             />
           </div>
 
