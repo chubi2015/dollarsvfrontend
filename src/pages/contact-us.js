@@ -10,6 +10,7 @@ import { contactData } from '@utils/data';
 import { notifySuccess } from '@utils/toast';
 import InputArea from '@component/form/InputArea';
 import PageHeader from '@component/header/PageHeader';
+import formgoogle from '@services/ContactUsService';
 
 const ContactUs = () => {
   const {
@@ -18,10 +19,31 @@ const ContactUs = () => {
     formState: { errors },
   } = useForm();
 
-  const submitHandler = () => {
-    notifySuccess(
-      'your message sent successfully. We will contact you shortly.'
-    );
+  const submitHandler = (data) => {
+    //condigo formulario 1FAIpQLSehJ9M4eokjygjahZHZZuS9FZBCkbhuPzVRXM1B5TxiT7ccwA
+    // name 470251612
+    // email 873469630
+    // subject 1540164879
+    // message 1908018796
+    //console.log(data.name)
+    //console.log(data.email)
+    //console.log(data.subject)
+    //console.log(data.message)
+    const formData = {
+      "entry.470251612": data.name,
+      "entry.873469630": data.email,
+      "entry.1540164879": data.subject,
+      "entry.1908018796": data.message
+    };
+    console.log(formData)
+    formgoogle.submitForm(formData).then((response) =>{
+      console.log(response.status)
+    }).catch((e)=>{
+      console.log(e.message)
+    })
+    //notifySuccess(
+    //  'your message sent successfully. We will contact you shortly.'
+    //);
   };
 
   return (
