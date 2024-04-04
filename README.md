@@ -87,3 +87,9 @@ Folder Structure & Customization:
 Configuration & Deployment:
 
 We use Vercel for Development if you use Vercel for development then just follow the Vercel Documentation, You can also deploy this any other hosting services if you want.
+
+
+
+Notas importantes
+
+en vercel escoger version 18.xx de nodejs

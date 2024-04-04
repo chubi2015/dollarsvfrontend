@@ -7,7 +7,7 @@ import Layout from '@layout/Layout';
 import Label from '@component/form/Label';
 import Error from '@component/form/Error';
 import { contactData } from '@utils/data';
-import { notifySuccess } from '@utils/toast';
+import { notifyError, notifySuccess } from '@utils/toast';
 import InputArea from '@component/form/InputArea';
 import PageHeader from '@component/header/PageHeader';
 import formgoogle from '@services/ContactUsService';
@@ -36,10 +36,12 @@ const ContactUs = () => {
       "entry.1908018796": data.message
     };
     console.log(formData)
-    formgoogle.submitForm(formData).then((response) =>{
+    formgoogle.submitForm(formData).then((response) => {
       console.log(response.status)
-    }).catch((e)=>{
-      console.log(e.message)
+      notifySuccess('your message sent successfully. We will contact you shortly.');
+    }).catch((e) => {
+      notifyError(e.message)
+      console.log(e.message);
     })
     //notifySuccess(
     //  'your message sent successfully. We will contact you shortly.'
