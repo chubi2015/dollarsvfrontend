@@ -1,8 +1,8 @@
-import requestGenrico from "./HttpFormCliente";
+import requests from './httpServices';
 
 const formgoogle = {
     submitForm(data) {
-      return requestGenrico.post('1FAIpQLSehJ9M4eokjygjahZHZZuS9FZBCkbhuPzVRXM1B5TxiT7ccwA/formResponse',data);
+      return requests.post('/contacus/sendmessage',data);
     },
   };
   

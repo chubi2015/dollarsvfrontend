@@ -25,20 +25,23 @@ const ContactUs = () => {
     // email 873469630
     // subject 1540164879
     // message 1908018796
-    //console.log(data.name)
-    //console.log(data.email)
-    //console.log(data.subject)
-    //console.log(data.message)
-    const formData = {
+
+    /* const formData = {
       "entry.470251612": data.name,
       "entry.873469630": data.email,
       "entry.1540164879": data.subject,
       "entry.1908018796": data.message
+    }; */
+    const formData = {
+      name: data.name,
+      email: data.email,
+      subject: data.subject,
+      message: data.message
     };
     console.log(formData)
     formgoogle.submitForm(formData).then((response) => {
-      console.log(response.status)
-      notifySuccess('your message sent successfully. We will contact you shortly.');
+      console.log(response)
+      notifySuccess('Tu mensaje ha sido enviado te contactaremos lo mas pronto posible');
     }).catch((e) => {
       notifyError(e.message)
       console.log(e.message);
@@ -50,7 +53,7 @@ const ContactUs = () => {
 
   return (
     <Layout title="Contact Us" description="This is contact us page">
-      <PageHeader title="Contact Us" />
+      <PageHeader title="Contactenos" />
 
       <div className="bg-white">
         <div className="max-w-screen-2xl mx-auto lg:py-20 py-10 px-4 sm:px-10">
@@ -63,12 +66,24 @@ const ContactUs = () => {
                 </span>
                 <h5 className="text-xl mb-2 font-bold">{data.title}</h5>
                 <p className="mb-0 text-base opacity-90 leading-7">
-                  <a
-                    href={`mailto:${data.contact}`}
-                    className="text-emerald-500"
-                  >
-                    {data.contact}
-                  </a>{' '}
+                  {data.title === "WhatsApp" ?
+                    <a
+                    href={`https://wa.me/+503${data.contact}`}
+                      className="text-emerald-500"
+                      target='_blank'
+                    >
+                      {data.contact}
+                    </a>
+                    :
+                    <a
+                      href={`mailto:${data.contact}`}
+                      className="text-emerald-500"
+                      
+                    >
+                      {data.contact}
+                    </a>
+                  }
+                  {' '}
                   {data.info}
                 </p>
               </div>
@@ -93,12 +108,11 @@ const ContactUs = () => {
               >
                 <div className="mb-12">
                   <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold font-serif mb-3">
-                    For any suppoort just send your query
+                    Escribenos!
                   </h3>
                   <p className="text-base opacity-90 leading-7">
-                    Collaboratively promote client-focused convergence vis-a-vis
-                    customer directed alignments via plagiarize strategic users
-                    and standardized infrastructures.
+                    Si tienes dudas sobre algun producto y no encuentras las respuesta en nuestra 
+                    secciòn de ayuda escribenos y te ayudaremos!
                   </p>
                 </div>
 
@@ -107,20 +121,20 @@ const ContactUs = () => {
                     <div className="w-full md:w-1/2 ">
                       <InputArea
                         register={register}
-                        label="Your Name"
+                        label="Nombre"
                         name="name"
                         type="text"
-                        placeholder="Inter Your Name"
+                        placeholder="Escribe tu nombre"
                       />
                       <Error errorName={errors.name} />
                     </div>
                     <div className="w-full md:w-1/2 md:ml-2.5 lg:ml-5 mt-2 md:mt-0">
                       <InputArea
                         register={register}
-                        label="Your Email"
+                        label="Email"
                         name="email"
                         type="email"
-                        placeholder="Inter Your Email"
+                        placeholder="Escribe tu Email"
                       />
                       <Error errorName={errors.email} />
                     </div>
@@ -131,22 +145,22 @@ const ContactUs = () => {
                       label="Subject"
                       name="subject"
                       type="text"
-                      placeholder="Inter Your Subject"
+                      placeholder="Escribe el asunto"
                     />
                     <Error errorName={errors.subject} />
                   </div>
                   <div className="relative mb-4">
-                    <Label label="Message" />
+                    <Label label="Mensaje" />
                     <textarea
                       {...register('message', {
-                        required: `Message is required!`,
+                        required: `Mensaje es obligatorio!`,
                       })}
                       name="message"
                       className="px-4 py-3 flex items-center w-full rounded appearance-none opacity-75 transition duration-300 ease-in-out text-sm focus:ring-0 bg-white border border-gray-300 focus:shadow-none focus:outline-none focus:border-gray-500 placeholder-body"
                       autoComplete="off"
                       spellCheck="false"
                       rows="4"
-                      placeholder="Write your message here"
+                      placeholder="Escribe tu mensaje aqui"
                     ></textarea>
                     <Error errorName={errors.message} />
                   </div>
@@ -155,7 +169,7 @@ const ContactUs = () => {
                       data-variant="flat"
                       className="md:text-sm leading-4 inline-flex items-center cursor-pointer transition ease-in-out duration-300 font-semibold text-center justify-center border-0 border-transparent rounded-md placeholder-white focus-visible:outline-none focus:outline-none bg-emerald-500 text-white px-5 md:px-6 lg:px-8 py-3 md:py-3.5 lg:py-3 hover:text-white hover:bg-emerald-600 h-12 mt-1 text-sm lg:text-base w-full sm:w-auto"
                     >
-                      Send Message
+                      Enviar Mensaje
                     </button>
                   </div>
                 </div>

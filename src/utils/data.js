@@ -1,3 +1,4 @@
+import { FaWhatsapp, FaWhatsappSquare } from 'react-icons/fa';
 import {
   // FiUser,
   FiGift,
@@ -208,8 +209,8 @@ const contactData = [
     id: 2,
     title: 'WhatsApp',
     info: 'Respondemos normalmente en 2 a 3 dias laborales.',
-    icon: FiPhoneCall,
-    contact: '+503 ####-####',
+    icon: FaWhatsapp,
+    contact: '75136765',
     className: 'bg-yellow-100',
   },
 /*   {
